@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PRO Athlete版（最強エンタープライズプラン）｜ガバショ！</title>
+<meta name="description" content="営業マンのモチベーションを、アスリートの力で最大化する。著名人・トップアスリートによる特別講演会で組織を動かす『ガバショ！』PRO Athlete（最強エンタープライズプラン）。月300万。" />
+<!-- TODO(claude): https://gabasho.example.com を本番ドメインへ置換。SVG非対応SNS向けにPNGのOGPも用意し og:image を差し替える。 -->
+<link rel="canonical" href="https://gabasho.example.com/athlete.html" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<meta name="theme-color" content="#c8102e" />
+<meta property="og:site_name" content="ガバショ！" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gabasho.example.com/athlete.html" />
+<meta property="og:title" content="PRO Athlete版（最強エンタープライズプラン）｜ガバショ！" />
+<meta property="og:description" content="アスリートの力で営業マンのモチベーションを最大化。特別講演会で組織を動かす。月300万。" />
+<meta property="og:image" content="https://gabasho.example.com/assets/og-athlete.svg" />
+<meta property="og:image:alt" content="ガバショ！ PRO Athlete版" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PRO Athlete版｜ガバショ！" />
+<meta name="twitter:description" content="アスリートの力で営業マンのモチベーションを最大化。特別講演会で組織を動かす。月300万。" />
+<meta name="twitter:image" content="https://gabasho.example.com/assets/og-athlete.svg" />
+<style>
+  :root{
+    --ink:#1c2330; --ink-2:#475066; --mut:#8b93a3; --line:#e6e9f0;
+    --bg:#ffffff; --bg-soft:#f6f8fc; --card:#ffffff;
+    --red:#d11a2a; --red-deep:#c8102e; --red-dark:#a30f23; --red-soft:#fdecee;
+    --navy:#13213f; --navy-2:#1b2c52; --gold:#caa44e; --gold-soft:#f7efd9;
+    --radius:16px; --shadow:0 18px 44px -26px rgba(19,33,63,.4);
+    --max:1180px; --font:'Hiragino Kaku Gothic ProN','Noto Sans JP',system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.8;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  .btn{display:inline-flex;align-items:center;gap:.5em;border:0;border-radius:999px;padding:13px 26px;font-weight:800;font-size:14.5px;text-decoration:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;white-space:nowrap}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-red{background:linear-gradient(120deg,var(--red),var(--red-deep));color:#fff;box-shadow:0 14px 28px -12px rgba(200,16,46,.55)}
+  .btn-ghost{background:#fff;color:var(--red-deep);border:1.5px solid var(--red)}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-arrow::after{content:"›";font-size:18px;line-height:1;margin-left:2px}
+  .pill{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--red-deep);background:var(--red-soft);padding:6px 14px;border-radius:999px}
+  .sample{font-size:10.5px;color:var(--mut);background:#fff;border:1px dashed var(--line);border-radius:7px;padding:1px 7px;display:inline-block;vertical-align:middle}
+
+  /* header */
+  header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.93);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:18px}
+  .cobrand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;flex:0 0 auto}
+  .cobrand .horipro{display:flex;align-items:center;gap:5px;font-size:15px;color:var(--ink)}
+  .cobrand .star{color:var(--red-deep)}
+  .cobrand .x{color:var(--mut);font-weight:700;font-size:12px}
+  .cobrand .abhap{font-size:13px;color:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+  .nav-links{display:flex;gap:20px;align-items:center;margin-left:auto}
+  .nav-links a{text-decoration:none;color:var(--ink-2);font-weight:700;font-size:13.5px}
+  .nav-links a:hover{color:var(--red-deep)}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .nav-cta .btn{padding:9px 16px;font-size:13px}
+  .burger{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;cursor:pointer;font-size:16px}
+
+  /* hero */
+  .hero{background:linear-gradient(180deg,#fff,var(--bg-soft));overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .wrap{padding:46px 22px 50px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+  .hero .eyebrow{font-size:13px;font-weight:900;color:var(--ink);margin:0 0 8px}
+  .hero .logo-jp{font-size:clamp(44px,7.5vw,80px);font-weight:900;line-height:1;color:var(--red-deep);margin:4px 0 2px}
+  .hero .logo-en{font-size:clamp(14px,2.2vw,20px);font-weight:800;letter-spacing:.34em;color:var(--ink);opacity:.65;margin-bottom:18px}
+  .plan-badge{display:inline-flex;align-items:center;gap:10px;margin-bottom:8px}
+  .plan-badge .tagred{background:linear-gradient(120deg,var(--red),var(--red-deep));color:#fff;font-weight:900;font-size:13px;padding:7px 14px;border-radius:8px;letter-spacing:.04em}
+  .plan-badge .pro{font-weight:900;font-size:clamp(20px,3.4vw,30px);color:var(--navy)}
+  .hero .planline{font-size:13.5px;color:var(--ink-2);font-weight:700;margin:0 0 16px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  /* collage */
+  .collage{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:5/4;background:
+      linear-gradient(135deg,#1b2c52,#0f1830);border:1px solid var(--line);box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:4px;padding:4px}
+  .collage .cell{border-radius:8px;display:grid;place-items:center;font-size:34px;color:#fff;background:rgba(255,255,255,.06)}
+  .collage .cell:nth-child(odd){background:rgba(209,26,42,.18)}
+  .collage .topbadge{position:absolute;top:10px;right:10px;background:linear-gradient(120deg,#f0a23c,#e8851f);color:#3a2406;font-weight:900;font-size:11px;border-radius:10px;padding:8px 12px;max-width:160px;text-align:center;line-height:1.35;box-shadow:0 10px 22px -12px rgba(0,0,0,.4)}
+  .hero-note{grid-column:1/-1;text-align:center;font-size:14px;color:var(--ink-2);font-weight:700;margin:6px 0 0}
+  .hero-note b{color:var(--red-deep)}
+
+  section{padding:60px 0}
+  .sec-head{margin:0 0 30px}
+  .sec-head .pill{margin-bottom:12px}
+  .sec-head h2{font-size:clamp(21px,2.9vw,29px);font-weight:900;margin:0}
+  .sec-head.center{text-align:center}
+  .head-bar{background:linear-gradient(120deg,var(--navy),var(--navy-2));color:#fff;border-radius:12px;padding:14px 22px;font-weight:900;font-size:clamp(17px,2.4vw,22px);display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
+  .head-bar .ico{color:var(--gold);font-size:20px}
+
+  /* icon row */
+  .merits{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+  .merit{text-align:center}
+  .merit .ic{width:60px;height:60px;margin:0 auto 10px;border-radius:16px;background:var(--red-soft);display:grid;place-items:center;font-size:26px;border:1px solid var(--line)}
+  .merit b{font-size:12.5px;display:block;line-height:1.45}
+
+  /* お悩み + 著名人 */
+  .pain{background:var(--bg-soft)}
+  .pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .pain-card{border-radius:18px;padding:28px 26px}
+  .pain-card.dark{background:linear-gradient(150deg,var(--navy),#0e1830);color:#fff}
+  .pain-card.dark h3{margin:0 0 16px;font-size:18px}
+  .pain-card.dark ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+  .pain-card.dark li{font-size:14px;display:flex;gap:10px;align-items:flex-start;color:#dfe5f2}
+  .pain-card.dark li::before{content:"😟";flex:0 0 auto}
+  .pain-card.red{background:linear-gradient(150deg,var(--red),var(--red-deep));color:#fff;display:flex;flex-direction:column;justify-content:center}
+  .pain-card.red h3{margin:0 0 16px;font-size:18px;line-height:1.5}
+  .pain-card.red ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+  .pain-card.red li{font-size:14px;display:flex;gap:10px;align-items:flex-start}
+  .pain-card.red li::before{content:"✓";font-weight:900;flex:0 0 auto}
+
+  /* PRO Athlete の内容 */
+  .content-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:stretch}
+  .lecture{background:#fff;border:1.5px solid var(--red);border-radius:18px;padding:30px 28px;position:relative;box-shadow:0 22px 50px -30px rgba(200,16,46,.4)}
+  .lecture .tag{font-size:13px;font-weight:800;color:var(--ink-2)}
+  .lecture .big{font-size:clamp(22px,3.2vw,30px);font-weight:900;margin:6px 0}
+  .lecture .once{display:inline-flex;align-items:baseline;gap:8px;color:var(--red-deep)}
+  .lecture .once b{font-size:54px;font-weight:900;line-height:1}
+  .specs{background:var(--bg-soft);border:1px solid var(--line);border-radius:18px;padding:24px}
+  .specs .row{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px dashed var(--line)}
+  .specs .row:last-child{border-bottom:0}
+  .specs .ic{width:36px;height:36px;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--red-deep);flex:0 0 auto}
+  .specs b{font-size:13px;display:block}
+  .specs small{font-size:13px;color:var(--ink-2)}
+  .content-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+  .ci{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 14px;text-align:center}
+  .ci .ic{font-size:24px;margin-bottom:6px}
+  .ci b{font-size:12.5px;line-height:1.45;display:block}
+
+  /* roster athletes */
+  .athletes{background:var(--bg-soft)}
+  .roster-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .talent{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 30px -26px rgba(19,33,63,.5)}
+  .talent .pic{aspect-ratio:3/4;background:linear-gradient(150deg,#1b2c52,#0f1830);display:grid;place-items:center;color:#fff;font-size:42px;position:relative}
+  .talent .pic .badge{position:absolute;top:10px;left:10px;font-size:9.5px;font-weight:800;background:#fff;color:var(--red-deep);border:1px dashed var(--red);padding:2px 8px;border-radius:999px}
+  .talent .body{padding:14px 14px 16px}
+  .talent .body h4{margin:0 0 2px;font-size:15px}
+  .talent .body .role{font-size:12px;color:var(--red-deep);font-weight:800}
+  .talent.more{display:grid;place-items:center;background:#fff;border-style:dashed;color:var(--mut);font-weight:900;font-size:18px}
+
+  /* 料金 + 流れ */
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+  .price-card{background:#fff;border:1.5px solid var(--gold);border-radius:18px;padding:30px 28px;box-shadow:0 22px 50px -30px rgba(202,164,78,.5);position:relative}
+  .price-card::after{content:"最強エンタープライズプラン";position:absolute;top:-13px;left:24px;background:linear-gradient(120deg,var(--red),var(--red-deep));color:#fff;font-size:11.5px;font-weight:900;padding:5px 13px;border-radius:999px}
+  .price-card .amt{font-size:clamp(32px,5vw,46px);font-weight:900;color:var(--ink)}
+  .price-card .amt small{font-size:14px;color:var(--mut);font-weight:700}
+  .price-card .desc{font-size:13.5px;color:var(--ink-2);margin:4px 0 16px}
+  .pay-chips{display:flex;gap:8px;flex-wrap:wrap}
+  .pay-chips span{font-size:11.5px;background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-weight:700;color:var(--ink-2)}
+  .price-card .btn{margin-top:20px;width:100%;justify-content:center}
+  .flow-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+  .flow-card h3{margin:0 0 16px;font-size:16px}
+  .flowsteps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .fs{text-align:center}
+  .fs .n{font-size:9.5px;font-weight:800;color:var(--red);letter-spacing:.08em}
+  .fs .ic{font-size:22px;margin:4px 0}
+  .fs b{font-size:10.5px;line-height:1.35;display:block;color:var(--ink-2)}
+
+  /* 声 */
+  .voices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .voice{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+  .voice .stars{color:var(--gold);font-size:13px;letter-spacing:2px}
+  .voice p{margin:8px 0 16px;font-size:13.5px}
+  .voice .who{display:flex;align-items:center;gap:11px}
+  .voice .av{width:42px;height:42px;border-radius:50%;background:var(--red-soft);display:grid;place-items:center;color:var(--red-deep);font-weight:900;flex:0 0 auto}
+  .voice .who b{font-size:12.5px}
+  .voice .who small{color:var(--mut);font-size:11px}
+
+  /* CTA band */
+  .cta-band{background:linear-gradient(120deg,var(--red),var(--red-deep));color:#fff;text-align:center;padding:48px 22px}
+  .cta-band h2{font-size:clamp(19px,2.8vw,28px);font-weight:900;margin:0 0 20px}
+  .cta-band .btn-red{background:#fff;color:var(--red-deep)}
+  .cta-band .btn-ghost{background:transparent;color:#fff;border-color:#fff}
+  .cta-band .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  footer.site{background:#fff;border-top:1px solid var(--line);padding:34px 0 48px}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  .foot small{color:var(--mut)}
+  .foot-links{display:flex;gap:18px;flex-wrap:wrap}
+  .foot-links a{text-decoration:none;color:var(--ink-2);font-weight:700;font-size:13.5px}
+  .switch{display:inline-flex;align-items:center;gap:8px;background:var(--red-deep);color:#fff;border-radius:999px;padding:7px 9px 7px 15px;font-size:12.5px;font-weight:700;text-decoration:none;margin-top:12px}
+  .switch b{background:#fff;color:var(--red-deep);border-radius:999px;padding:5px 12px;font-size:12px}
+
+  @media(max-width:980px){
+    .hero .wrap{grid-template-columns:1fr}.collage{max-width:460px}
+    .merits{grid-template-columns:repeat(3,1fr)}
+    .pain-grid{grid-template-columns:1fr}.content-grid{grid-template-columns:1fr}
+    .content-icons{grid-template-columns:repeat(2,1fr)}.price-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:18px 22px;gap:16px;margin:0}
+    .burger{display:inline-flex}
+    .nav-cta .btn:nth-child(2){display:none}
+    .roster-grid{grid-template-columns:1fr 1fr}.voices{grid-template-columns:1fr}
+    .flowsteps{grid-template-columns:repeat(5,1fr)}
+  }
+  @media(max-width:520px){.merits{grid-template-columns:1fr 1fr}.roster-grid{grid-template-columns:1fr 1fr}.flowsteps{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="cobrand" href="index.html" aria-label="HORIPRO × A.B.HAP ガバショ！">
+      <span class="horipro"><span class="star">★</span>HORIPRO</span>
+      <span class="x">×</span>
+      <span class="abhap">A.B.HAP</span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#merits">特長</a>
+      <a href="#content">内容</a>
+      <a href="#athletes">登場アスリート</a>
+      <a href="#price">料金プラン</a>
+      <a href="#voices">導入事例</a>
+      <a href="announcer.html">アナウンサー版</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-red" href="contact.html?plan=athlete">資料請求する（無料）</a>
+      <a class="btn btn-ghost" href="contact.html?plan=athlete">相談する</a>
+      <button class="burger" id="burger" aria-label="メニュー">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">営業マンのモチベーションを、アスリートの力で最大化する。</p>
+      <div class="logo-jp">ガバショ！</div>
+      <div class="logo-en">GABASHO!</div>
+      <div class="plan-badge"><span class="tagred">最強エンタープライズプラン</span><span class="pro">PRO Athlete</span></div>
+      <p class="planline">アスリート伴走型モチベーション支援プラン</p>
+      <p style="font-size:14.5px;color:var(--ink-2);margin:0 0 18px">挑戦してきた人が、挑戦している人に伴走する。<br>それが、<b style="color:var(--red-deep)">ガバショ！ PRO Athlete</b> です。</p>
+      <div class="hero-cta">
+        <a class="btn btn-red" href="contact.html?plan=athlete">資料請求する（無料）</a>
+        <a class="btn btn-ghost btn-arrow" href="contact.html?plan=athlete">相談・お問い合わせ</a>
+      </div>
+    </div>
+    <div class="collage" role="img" aria-label="トップアスリートのイメージコラージュ（写真は許諾後に差し替え）">
+      <div class="cell">⚽</div><div class="cell">⚾</div><div class="cell">🏀</div>
+      <div class="cell">🎾</div><div class="cell">🏃</div><div class="cell">⛳</div>
+      <div class="topbadge">営業マンの“やる気”を引き出す<br>最上位プラン</div>
+    </div>
+    <p class="hero-note">写真は<b>許諾後に差し替え</b> <span class="sample">※サンプル</span></p>
+  </div>
+</section>
+
+<!-- 特長アイコン -->
+<section id="merits">
+  <div class="wrap">
+    <div class="merits">
+      <div class="merit"><div class="ic">🔥</div><b>モチベーション最大化</b></div>
+      <div class="merit"><div class="ic">🤝</div><b>組織エンゲージメント向上</b></div>
+      <div class="merit"><div class="ic">💪</div><b>チーム力強化</b></div>
+      <div class="merit"><div class="ic">🧠</div><b>メンタルサポート</b></div>
+      <div class="merit"><div class="ic">🛡️</div><b>離職防止</b></div>
+      <div class="merit"><div class="ic">🎁</div><b>福利厚生として活用可能</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- お悩み + 著名人 -->
+<section class="pain">
+  <div class="wrap">
+    <div class="pain-grid">
+      <div class="pain-card dark">
+        <h3>こんなお悩みはありませんか？</h3>
+        <ul>
+          <li>よくわからないと上司を頼れず、部下に響かない</li>
+          <li>モチベーションが上がらず、成果に繋がらない</li>
+          <li>チームに一体感がなく、離職も増えている</li>
+          <li>社員の成長機会や刺激が不足している</li>
+        </ul>
+      </div>
+      <div class="pain-card red">
+        <h3>著名人・アスリートのリアルな経験と生き方が、営業マンの心を動かし、行動を変える！</h3>
+        <ul>
+          <li>失敗経験をバネにした「乗り越え方」</li>
+          <li>結果を出し続けるための「思考法」</li>
+          <li>目標に向かう「習慣」とメンタル</li>
+          <li>チームで勝つための「コミュニケーション」</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRO Athlete の内容 -->
+<section id="content">
+  <div class="wrap">
+    <div class="sec-head center"><span class="pill">CONTENT</span><h2>ガバショ！ PRO Athlete の内容</h2></div>
+    <div class="content-grid">
+      <div class="lecture">
+        <div class="tag">著名人・トップアスリートによる</div>
+        <div class="big">特別講演会を</div>
+        <div class="once"><b>1</b><span style="font-size:20px;font-weight:900">回 実施</span></div>
+      </div>
+      <div class="specs">
+        <div class="row"><span class="ic">⏱️</span><div><b>講演時間</b><small>60〜90分（質疑応答含む）</small></div></div>
+        <div class="row"><span class="ic">👥</span><div><b>想定参加人数</b><small>50〜500名程度</small></div></div>
+        <div class="row"><span class="ic">💻</span><div><b>実施形式</b><small>オンライン／オフライン対応可能</small></div></div>
+      </div>
+    </div>
+    <div class="content-icons">
+      <div class="ci"><div class="ic">🌟</div><b>リアルな経験と生き方を共有</b></div>
+      <div class="ci"><div class="ic">🔥</div><b>営業マンの心に火をつける</b></div>
+      <div class="ci"><div class="ic">📈</div><b>行動変容と成果向上</b></div>
+      <div class="ci"><div class="ic">🏆</div><b>組織のブランド価値・エンゲージメント向上</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 登場アスリート（roster：実名は許諾確定まで非掲載） -->
+<section class="athletes" id="athletes">
+  <div class="wrap">
+    <div class="head-bar"><span class="ico">★</span>第一線で活躍するトップアスリートが登場</div>
+    <div class="roster-grid" id="rosterGrid" style="margin-top:24px"><!-- JSで描画 --></div>
+    <p style="text-align:center;margin:18px 0 0"><span class="sample">実在のアスリートの実名／写真は許諾確定後に roster 配列を差し替えて掲載（現状は匿名プレースホルダー）</span></p>
+  </div>
+</section>
+
+<!-- 料金 + ご利用の流れ -->
+<section id="price">
+  <div class="wrap">
+    <div class="sec-head"><span class="pill">PRICE &amp; FLOW</span><h2>料金プラン・ご利用の流れ <span class="sample">※サンプル</span></h2></div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div style="height:6px"></div>
+        <div class="amt">月額 3,000,000<small>円（税別）</small></div>
+        <div class="desc">1回の特別講演会を実施</div>
+        <div class="pay-chips"><span>銀行振込</span><span>請求書払い</span><span>カード決済</span><span>導入サポート</span></div>
+        <a class="btn btn-red btn-arrow" href="contact.html?plan=athlete">資料請求・お問い合わせ</a>
+      </div>
+      <div class="flow-card">
+        <h3>ご利用の流れ</h3>
+        <div class="flowsteps">
+          <div class="fs"><div class="n">STEP 01</div><div class="ic">📞</div><b>お問い合わせ・ヒアリング</b></div>
+          <div class="fs"><div class="n">STEP 02</div><div class="ic">📝</div><b>ご提案・お見積り</b></div>
+          <div class="fs"><div class="n">STEP 03</div><div class="ic">🗓️</div><b>登壇者・内容の調整</b></div>
+          <div class="fs"><div class="n">STEP 04</div><div class="ic">🎤</div><b>講演会の準備・告知</b></div>
+          <div class="fs"><div class="n">STEP 05</div><div class="ic">✅</div><b>講演会当日・フォロー</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 導入企業の声 -->
+<section id="voices" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <div class="sec-head center"><span class="pill">VOICE</span><h2>導入企業の声 <span class="sample">※サンプル</span></h2></div>
+    <div class="voices">
+      <div class="voice"><div class="stars">★★★★★</div><p>「チームの雰囲気が劇的に変わりました！アスリートの本気の言葉に、社員一人ひとりが奮い立ちました。」</p><div class="who"><div class="av">A</div><div><b>A社 営業責任者</b><br><small>IT・従業員150名</small></div></div></div>
+      <div class="voice"><div class="stars">★★★★★</div><p>「社員の挑戦意欲が高まりました！日々の積み重ねの大切さを、説得力をもって伝えてもらえました。」</p><div class="who"><div class="av">B</div><div><b>B社 人事部長</b><br><small>製造・従業員300名</small></div></div></div>
+      <div class="voice"><div class="stars">★★★★★</div><p>「採用活動でも大きな効果がありました。ブランディングとしても、最高の体験でした。」</p><div class="who"><div class="av">C</div><div><b>C社 経営企画</b><br><small>不動産・従業員240名</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>最強の言葉が、チームの未来を変える。</h2>
+  <div class="row">
+    <a class="btn btn-red btn-arrow" href="contact.html?plan=athlete">資料請求する（無料）</a>
+    <a class="btn btn-ghost btn-arrow" href="contact.html?plan=athlete">相談・お問い合わせはこちら</a>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap foot">
+    <div>
+      <a class="cobrand" href="index.html"><span class="horipro"><span class="star">★</span>HORIPRO</span><span class="x">×</span><span class="abhap">A.B.HAP</span></a>
+      <div style="margin-top:10px"><small>※ 掲載の人物・写真・実績・お客様の声・料金・ロゴはすべて許諾／確定前のサンプルです。</small></div>
+      <div><a class="switch" href="announcer.html">別プランを見る <b>アナウンサー・モデル版 →</b></a></div>
+    </div>
+    <div class="foot-links">
+      <a href="index.html">トップ</a>
+      <a href="announcer.html">アナウンサー・モデル版</a>
+      <a href="athlete.html">PRO Athlete版</a>
+      <a href="contact.html?plan=athlete">資料請求・相談</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:22px"><small style="color:var(--mut)">© <span id="yr"></span> ガバショ！（HORIPRO × A.B.HAP）All rights reserved.</small></div>
+</footer>
+
+<script>
+  // ▼▼ 登場アスリート（roster） ▼▼
+  // 実在のアスリートの実名／写真は許諾確定まで掲載しない（CLAUDE.md準拠）。
+  // 許諾取得後、この配列の name / role / photo を差し替えるだけで反映されます。
+  var roster = [
+    { name:"アスリート A", role:"サッカー 元日本代表", photo:"" },
+    { name:"アスリート B", role:"プロ野球 選手", photo:"" },
+    { name:"アスリート C", role:"バスケットボール 元日本代表", photo:"" },
+    { name:"アスリート D", role:"プロテニス 選手", photo:"" },
+    { name:"アスリート E", role:"陸上 短距離選手", photo:"" },
+    { name:"アスリート F", role:"プロゴルファー", photo:"" }
+  ];
+
+  function renderRoster(){
+    var grid = document.getElementById('rosterGrid');
+    if (!grid) return;
+    var cards = roster.map(function(t){
+      var initial = (t.name || "?").trim().charAt(0);
+      var pic = t.photo
+        ? '<div class="pic" style="background-image:url(\'' + t.photo + '\');background-size:cover;background-position:center"><span class="badge">登場</span></div>'
+        : '<div class="pic"><span class="badge">※許諾確認中</span>🏅</div>';
+      return ''
+        + '<div class="talent">'
+        +   pic
+        +   '<div class="body"><h4>' + t.name + '</h4><div class="role">' + t.role + '</div></div>'
+        + '</div>';
+    });
+    cards.push('<div class="talent more">and more…</div>');
+    grid.innerHTML = cards.join('');
+  }
+  renderRoster();
+
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navlinks');
+  if (burger) burger.addEventListener('click', function(){ links.classList.toggle('open'); });
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

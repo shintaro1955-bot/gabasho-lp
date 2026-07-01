@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="ガバショ！ 本物の伴走で、組織を強くする">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1b3d"/>
+      <stop offset="1" stop-color="#1a1230"/>
+    </linearGradient>
+    <radialGradient id="p" cx="18%" cy="0%" r="60%">
+      <stop offset="0" stop-color="#ff5b8a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ff5b8a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gd" cx="100%" cy="100%" r="55%">
+      <stop offset="0" stop-color="#d7b25a" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#d7b25a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="badge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5b8a"/>
+      <stop offset="1" stop-color="#0f1b3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#p)"/>
+  <rect width="1200" height="630" fill="url(#gd)"/>
+  <g font-family="'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif">
+    <rect x="100" y="120" width="96" height="96" rx="24" fill="url(#badge)"/>
+    <text x="148" y="190" font-size="56" font-weight="900" fill="#fff" text-anchor="middle">ガ</text>
+    <text x="220" y="196" font-size="48" font-weight="900" fill="#fff">ガバショ！</text>
+    <text x="100" y="340" font-size="72" font-weight="900" fill="#fff">本物の伴走で、</text>
+    <text x="100" y="430" font-size="72" font-weight="900" fill="#fff">組織を<tspan fill="#ff8fb0">強くする</tspan>。</text>
+    <text x="100" y="520" font-size="34" font-weight="700" fill="#c3cbdd">アナウンサー・モデル ／ PRO アスリートが、ガチで伴走。</text>
+  </g>
+</svg>

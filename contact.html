@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>資料請求・お問い合わせ｜ガバショ！</title>
+<meta name="description" content="ガバショ！への資料請求・無料相談はこちら。アナウンサー・モデル版／PRO Athlete版、どちらのプランでもお気軽にご相談ください。" />
+<!-- TODO(claude): https://gabasho.example.com を本番ドメインへ置換。SVG非対応SNS向けにPNGのOGPも用意し og:image を差し替える。 -->
+<link rel="canonical" href="https://gabasho.example.com/contact.html" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<meta name="theme-color" content="#e23e72" />
+<meta property="og:site_name" content="ガバショ！" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gabasho.example.com/contact.html" />
+<meta property="og:title" content="資料請求・お問い合わせ｜ガバショ！" />
+<meta property="og:description" content="ガバショ！への資料請求・無料相談はこちら。どちらのプランでもお気軽にご相談ください。" />
+<meta property="og:image" content="https://gabasho.example.com/assets/og-default.svg" />
+<meta property="og:image:alt" content="ガバショ！ 資料請求・お問い合わせ" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="資料請求・お問い合わせ｜ガバショ！" />
+<meta name="twitter:description" content="ガバショ！への資料請求・無料相談はこちら。" />
+<meta name="twitter:image" content="https://gabasho.example.com/assets/og-default.svg" />
+<style>
+  :root{
+    --ink:#15171c; --ink-2:#3a3f4b; --mut:#6b7280; --line:#e7e9ef;
+    --bg:#fff; --bg-soft:#f7f8fb; --card:#fff;
+    --pink:#ff5b8a; --pink-deep:#e23e72; --pink-soft:#fff0f5;
+    --navy:#0f1b3d; --gold:#c8a24a;
+    --ok:#1f9d62; --err:#d6334a;
+    --radius:14px; --shadow:0 18px 44px -26px rgba(20,24,40,.4);
+    --max:980px; --font:'Hiragino Kaku Gothic ProN','Noto Sans JP',system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  .btn{display:inline-flex;align-items:center;gap:.5em;border:0;border-radius:999px;padding:14px 28px;font-weight:800;font-size:15px;text-decoration:none;cursor:pointer;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:linear-gradient(120deg,var(--pink),var(--pink-deep));color:#fff;box-shadow:0 14px 30px -12px rgba(226,62,114,.6)}
+  .btn[disabled]{opacity:.55;cursor:not-allowed;transform:none}
+
+  header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:900;text-decoration:none;font-size:19px}
+  .brand .dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--pink),var(--navy));display:grid;place-items:center;color:#fff;font-size:15px}
+  .cobrand{display:flex;align-items:center;gap:9px;text-decoration:none;font-weight:900;flex:0 0 auto}
+  .cobrand .horipro{display:flex;align-items:center;gap:5px;font-size:15px;color:var(--ink)}
+  .cobrand .star{color:var(--pink-deep)}
+  .cobrand .x{color:var(--mut);font-weight:700;font-size:12px}
+  .cobrand .abhap{font-size:12.5px;color:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+  .cobrand .ga{margin-left:4px;font-size:15px;color:var(--pink-deep)}
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--ink-2);font-weight:700;font-size:14px}
+  .nav-links a.active{color:var(--pink-deep)}
+  .burger{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
+
+  .head{background:radial-gradient(800px 400px at 12% -20%,var(--pink-soft),transparent 60%),radial-gradient(700px 380px at 100% 0,#eef2ff,transparent 55%)}
+  .head .wrap{padding:60px 22px 30px}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--pink-deep);background:var(--pink-soft);padding:6px 14px;border-radius:999px}
+  .head h1{font-size:clamp(26px,4.2vw,40px);font-weight:900;margin:.4em 0 .2em}
+  .head p{color:var(--ink-2);max-width:620px}
+
+  .layout{display:grid;grid-template-columns:1.4fr .8fr;gap:30px;padding:40px 0 80px}
+  .formcard{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:34px 32px}
+  .field{margin-bottom:20px}
+  .field label{display:block;font-weight:800;font-size:14px;margin-bottom:7px}
+  .field label .req{color:var(--err);font-size:12px;margin-left:6px}
+  .field label .opt{color:var(--mut);font-size:12px;margin-left:6px;font-weight:600}
+  .control{width:100%;border:1.5px solid var(--line);border-radius:var(--radius);padding:12px 14px;font-size:15px;font-family:inherit;background:#fff;transition:border-color .15s ease,box-shadow .15s ease}
+  .control:focus{outline:0;border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,91,138,.12)}
+  textarea.control{min-height:120px;resize:vertical}
+  select.control{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .control.invalid{border-color:var(--err);box-shadow:0 0 0 4px rgba(214,51,74,.1)}
+  .err-msg{display:none;color:var(--err);font-size:12.5px;margin-top:6px;font-weight:700}
+  .err-msg.show{display:block}
+
+  /* radio chips */
+  .chips{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{position:relative}
+  .chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+  .chip span{display:inline-block;border:1.5px solid var(--line);border-radius:999px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer;transition:all .15s ease}
+  .chip input:checked + span{border-color:var(--pink-deep);background:var(--pink-soft);color:var(--pink-deep)}
+  .chip input:focus-visible + span{box-shadow:0 0 0 4px rgba(255,91,138,.15)}
+
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink-2)}
+  .consent input{margin-top:4px;width:17px;height:17px;flex:0 0 auto}
+
+  .submit-row{margin-top:8px}
+  .form-status{margin-top:16px;font-size:14px;font-weight:800;display:none}
+  .form-status.show{display:block}
+  .form-status.ok{color:var(--ok)}
+  .form-status.bad{color:var(--err)}
+
+  .aside{display:flex;flex-direction:column;gap:18px}
+  .aside .box{background:var(--bg-soft);border:1px solid var(--line);border-radius:18px;padding:24px}
+  .aside .box h3{margin:0 0 10px;font-size:16px}
+  .aside .box p{margin:0;font-size:13.5px;color:var(--ink-2)}
+  .aside .plan-mini{display:flex;gap:12px;align-items:center;text-decoration:none;border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+  .aside .plan-mini .sw{width:38px;height:38px;border-radius:10px;flex:0 0 auto}
+  .aside .plan-mini .sw.pink{background:linear-gradient(135deg,#ff6f9d,#e23e72)}
+  .aside .plan-mini .sw.navy{background:linear-gradient(135deg,#16224a,#0c1530)}
+  .aside .plan-mini .sw.red{background:linear-gradient(135deg,#d11a2a,#c8102e)}
+  .aside .plan-mini b{font-size:14px}
+  .aside .plan-mini small{color:var(--mut);font-size:12px}
+
+  footer.site{border-top:1px solid var(--line);padding:40px 0 56px;background:var(--bg-soft)}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap}
+  .foot-links a{text-decoration:none;color:var(--ink-2);font-weight:700;font-size:14px}
+  .foot small{color:var(--mut)}
+
+  @media(max-width:860px){
+    .nav-links{display:none}.nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:18px 22px;gap:16px}
+    .burger{display:inline-flex}
+    .layout{grid-template-columns:1fr}.row2{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="cobrand" href="index.html" aria-label="HORIPRO × A.B.HAP ガバショ！"><span class="horipro"><span class="star">★</span>HORIPRO</span><span class="x">×</span><span class="abhap">A.B.HAP</span><span class="ga">ガバショ！</span></a>
+    <nav class="nav-links" id="navlinks">
+      <a href="index.html">トップ</a>
+      <a href="announcer.html">アナウンサー・モデル版</a>
+      <a href="athlete.html">PRO Athlete版</a>
+      <a class="active" href="contact.html">資料請求・相談</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニュー">☰</button>
+  </div>
+</header>
+
+<div class="head">
+  <div class="wrap">
+    <span class="eyebrow">CONTACT</span>
+    <h1>資料請求・お問い合わせ</h1>
+    <p>アナウンサー・モデル版／PRO Athlete版、どちらでもお気軽にご相談ください。<br>内容を確認のうえ、担当よりご連絡します。</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="layout">
+    <!-- フォーム -->
+    <form class="formcard" id="contactForm" novalidate>
+      <!-- 興味プラン -->
+      <div class="field">
+        <label>興味のあるプラン<span class="req">必須</span></label>
+        <div class="chips" id="planChips">
+          <label class="chip"><input type="radio" name="plan" value="announcer" required><span>アナウンサー・モデル版</span></label>
+          <label class="chip"><input type="radio" name="plan" value="athlete"><span>PRO Athlete版</span></label>
+          <label class="chip"><input type="radio" name="plan" value="undecided"><span>まだ決めていない</span></label>
+        </div>
+        <div class="err-msg" data-for="plan">プランを選択してください。</div>
+      </div>
+
+      <!-- 種別 -->
+      <div class="field">
+        <label for="kind">お問い合わせ種別<span class="req">必須</span></label>
+        <select id="kind" name="kind" class="control" required>
+          <option value="">選択してください</option>
+          <option value="document">資料請求</option>
+          <option value="consult">無料相談・打ち合わせ希望</option>
+          <option value="estimate">お見積り希望</option>
+          <option value="other">その他</option>
+        </select>
+        <div class="err-msg" data-for="kind">種別を選択してください。</div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="company">会社名<span class="req">必須</span></label>
+          <input id="company" name="company" class="control" type="text" autocomplete="organization" required>
+          <div class="err-msg" data-for="company">会社名を入力してください。</div>
+        </div>
+        <div class="field">
+          <label for="name">お名前<span class="req">必須</span></label>
+          <input id="name" name="name" class="control" type="text" autocomplete="name" required>
+          <div class="err-msg" data-for="name">お名前を入力してください。</div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="email">メールアドレス<span class="req">必須</span></label>
+          <input id="email" name="email" class="control" type="email" autocomplete="email" required placeholder="you@example.com">
+          <div class="err-msg" data-for="email">正しいメールアドレスを入力してください。</div>
+        </div>
+        <div class="field">
+          <label for="tel">電話番号<span class="opt">任意</span></label>
+          <input id="tel" name="tel" class="control" type="tel" autocomplete="tel" inputmode="tel" placeholder="000-0000-0000">
+          <div class="err-msg" data-for="tel">正しい電話番号を入力してください。</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">ご相談内容<span class="opt">任意</span></label>
+        <textarea id="message" name="message" class="control" placeholder="課題感・実施したいこと・想定時期などをご記入ください。"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <span>個人情報の取り扱いに同意します（プライバシーポリシー）。<span class="req">必須</span></span>
+        </label>
+        <div class="err-msg" data-for="consent">同意が必要です。</div>
+      </div>
+
+      <div class="submit-row">
+        <button class="btn btn-primary" type="submit" id="submitBtn">送信する</button>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+      </div>
+    </form>
+
+    <!-- サイド -->
+    <aside class="aside">
+      <a class="plan-mini" href="announcer.html"><span class="sw pink"></span><span><b>アナウンサー・モデル版</b><br><small>月30万〜／モチベーション伴走</small></span></a>
+      <a class="plan-mini" href="athlete.html"><span class="sw red"></span><span><b>PRO Athlete版</b><br><small>月300万／特別講演会（最強エンタープライズ）</small></span></a>
+      <div class="box">
+        <h3>お電話でのご相談</h3>
+        <p>受付：平日 10:00–18:00<br><b>000-0000-0000</b> <span style="font-size:11px;color:var(--mut)">※サンプル</span></p>
+      </div>
+      <div class="box">
+        <h3>送信後の流れ</h3>
+        <p>1営業日以内に担当よりご連絡します。資料請求の場合は資料をメールでお送りします。<span style="font-size:11px;color:var(--mut)">※サンプル</span></p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap foot">
+    <div>
+      <a class="cobrand" href="index.html" aria-label="HORIPRO × A.B.HAP ガバショ！"><span class="horipro"><span class="star">★</span>HORIPRO</span><span class="x">×</span><span class="abhap">A.B.HAP</span><span class="ga">ガバショ！</span></a>
+      <div style="margin-top:8px"><small>※ 掲載の連絡先・料金・所要日数は確定前のサンプルです。</small></div>
+    </div>
+    <div class="foot-links">
+      <a href="index.html">トップ</a>
+      <a href="announcer.html">アナウンサー・モデル版</a>
+      <a href="athlete.html">PRO Athlete版</a>
+      <a href="contact.html">資料請求・相談</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:24px"><small style="color:var(--mut)">© <span id="yr"></span> ガバショ！（HORIPRO × A.B.HAP）All rights reserved.</small></div>
+</footer>
+
+<script>
+  // モバイルメニュー
+  var burger = document.getElementById('burger');
+  var navlinks = document.getElementById('navlinks');
+  if (burger) burger.addEventListener('click', function(){ navlinks.classList.toggle('open'); });
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  // URLパラメータでプランを初期選択（例: contact.html?plan=athlete）
+  (function preselectPlan(){
+    var params = new URLSearchParams(window.location.search);
+    var plan = params.get('plan');
+    if (!plan) return;
+    var radio = document.querySelector('input[name="plan"][value="' + plan + '"]');
+    if (radio) radio.checked = true;
+  })();
+
+  var form = document.getElementById('contactForm');
+  var statusEl = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('submitBtn');
+
+  function showError(name, show){
+    var msg = form.querySelector('.err-msg[data-for="' + name + '"]');
+    if (msg) msg.classList.toggle('show', show);
+    // テキスト系の .control だけ赤枠にする（ラジオ/チェックボックスは枠を付けない）
+    var field = form.querySelector('[name="' + name + '"]');
+    if (field && field.classList.contains('control')) {
+      field.classList.toggle('invalid', show);
+    }
+  }
+
+  function validEmail(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+  function validTel(v){
+    if (!v) return true; // 任意
+    return /^[0-9+\-()\s]{7,20}$/.test(v);
+  }
+
+  function validate(){
+    var ok = true;
+    // plan（ラジオ）
+    var planChecked = form.querySelector('input[name="plan"]:checked');
+    showError('plan', !planChecked); if (!planChecked) ok = false;
+    // kind
+    var kind = form.kind.value.trim();
+    showError('kind', !kind); if (!kind) ok = false;
+    // company
+    var company = form.company.value.trim();
+    showError('company', !company); if (!company) ok = false;
+    // name
+    var name = form.name.value.trim();
+    showError('name', !name); if (!name) ok = false;
+    // email
+    var email = form.email.value.trim();
+    var emailOk = validEmail(email);
+    showError('email', !emailOk); if (!emailOk) ok = false;
+    // tel（任意・形式のみ）
+    var telOk = validTel(form.tel.value.trim());
+    showError('tel', !telOk); if (!telOk) ok = false;
+    // consent
+    var consent = form.consent.checked;
+    showError('consent', !consent); if (!consent) ok = false;
+    return ok;
+  }
+
+  // 入力時にエラー解除
+  form.addEventListener('input', function(e){
+    var n = e.target.name;
+    if (n) { var m = form.querySelector('.err-msg[data-for="' + n + '"]'); if (m) m.classList.remove('show'); if (e.target.classList) e.target.classList.remove('invalid'); }
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    if (!validate()) {
+      statusEl.className = 'form-status show bad';
+      statusEl.textContent = '未入力・不備の項目があります。赤い項目をご確認ください。';
+      var firstErr = form.querySelector('.err-msg.show');
+      if (firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    // 収集データ（送信先未接続：UIのみ）
+    var payload = {
+      plan: (form.querySelector('input[name="plan"]:checked') || {}).value || '',
+      kind: form.kind.value,
+      company: form.company.value.trim(),
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      tel: form.tel.value.trim(),
+      message: form.message.value.trim()
+    };
+
+    // ============================================================
+    // TODO(claude): フォーム送信先を実装する。
+    //   現状は送信先「未接続」のUI状態。下のダミー処理を実装に置き換える。
+    //   候補:
+    //     A) kintone（想定本命）: REST API にレコード追加（APIトークンはサーバ側で保持）
+    //     B) メール送信: GAS / SendGrid / Resend などで通知メール
+    //     C) CRM / Sheets: フォームBFF経由でPOST
+    //   注意:
+    //     - APIキー/トークンはクライアントに置かない（必ずサーバ/関数経由）
+    //     - ブラウザストレージ(localStorage等)は使用しない（CLAUDE.md準拠）
+    //     - 送信成功/失敗で statusEl を出し分け、submitBtn を再活性化する
+    //   実装イメージ:
+    //     submitBtn.disabled = true;
+    //     fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+    //       .then(function(r){ if(!r.ok) throw new Error('failed'); return r.json(); })
+    //       .then(function(){ onSuccess(); })
+    //       .catch(function(){ onError(); })
+    //       .finally(function(){ submitBtn.disabled = false; });
+    // ============================================================
+
+    // --- ダミー処理（送信先未接続）---
+    submitBtn.disabled = true;
+    statusEl.className = 'form-status show ok';
+    statusEl.textContent = '送信内容を確認しました。※現在フォームは送信先未接続のデモ状態です（Claude Codeが送信先を実装します）。';
+    if (window.console) console.log('[contact] payload (未送信)', payload);
+    setTimeout(function(){ submitBtn.disabled = false; }, 1200);
+  });
+</script>
+</body>
+</html>

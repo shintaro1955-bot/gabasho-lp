@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>アナウンサー・モデル版｜ガバショ！</title>
+<meta name="description" content="ホリプロのアナウンサー・モデルが伴走する、営業マンのモチベーション伴走サービス『ガバショ！』。やる気を引き出し成果を最大化。データ伴走で組織が変わる。月30万〜。" />
+<!-- TODO(claude): https://gabasho.example.com を本番ドメインへ置換。SVG非対応SNS向けにPNGのOGPも用意し og:image を差し替える。 -->
+<link rel="canonical" href="https://gabasho.example.com/announcer.html" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<meta name="theme-color" content="#e6397f" />
+<meta property="og:site_name" content="ガバショ！" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gabasho.example.com/announcer.html" />
+<meta property="og:title" content="アナウンサー・モデル版｜ガバショ！" />
+<meta property="og:description" content="ホリプロのアナウンサー・モデルが伴走する営業マンのモチベーション伴走サービス。月30万〜。" />
+<meta property="og:image" content="https://gabasho.example.com/assets/og-announcer.svg" />
+<meta property="og:image:alt" content="ガバショ！ アナウンサー・モデル版" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="アナウンサー・モデル版｜ガバショ！" />
+<meta name="twitter:description" content="ホリプロのアナウンサー・モデルが伴走する営業マンのモチベーション伴走サービス。月30万〜。" />
+<meta name="twitter:image" content="https://gabasho.example.com/assets/og-announcer.svg" />
+<style>
+  :root{
+    --ink:#222530; --ink-2:#4a4f5c; --mut:#8b91a0; --line:#f0dbe4;
+    --bg:#ffffff; --bg-soft:#fff5f8; --bg-soft2:#fff0f5; --card:#ffffff;
+    --pink:#ef4a8b; --pink-deep:#e6397f; --pink-dark:#c92a68; --pink-soft:#ffe9f1; --pink-tint:#fff5f8;
+    --gold:#caa44e; --gold-soft:#f7efd9;
+    --navy:#172a4d;
+    --radius:16px; --shadow:0 18px 44px -26px rgba(230,57,127,.45);
+    --max:1180px; --font:'Hiragino Kaku Gothic ProN','Noto Sans JP',system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.8;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  .btn{display:inline-flex;align-items:center;gap:.5em;border:0;border-radius:999px;padding:13px 26px;font-weight:800;font-size:14.5px;text-decoration:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;white-space:nowrap}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:linear-gradient(120deg,var(--pink),var(--pink-deep));color:#fff;box-shadow:0 14px 28px -12px rgba(230,57,127,.6)}
+  .btn-ghost{background:#fff;color:var(--pink-deep);border:1.5px solid var(--pink)}
+  .btn-arrow::after{content:"›";font-size:18px;line-height:1;margin-left:2px}
+  .eyebrow{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--pink-deep)}
+  .pill{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--pink-deep);background:var(--pink-soft);padding:6px 14px;border-radius:999px}
+  .sample{font-size:10.5px;color:var(--mut);background:#fff;border:1px dashed var(--line);border-radius:7px;padding:1px 7px;display:inline-block;vertical-align:middle}
+
+  /* header */
+  header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:18px}
+  .cobrand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;flex:0 0 auto}
+  .cobrand .horipro{display:flex;align-items:center;gap:5px;font-size:15px;color:var(--ink)}
+  .cobrand .star{color:var(--pink-deep)}
+  .cobrand .x{color:var(--mut);font-weight:700;font-size:12px}
+  .cobrand .abhap{font-size:13px;color:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+  .nav-links{display:flex;gap:20px;align-items:center;margin-left:auto}
+  .nav-links a{text-decoration:none;color:var(--ink-2);font-weight:700;font-size:13.5px}
+  .nav-links a:hover{color:var(--pink-deep)}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .nav-cta .btn{padding:9px 16px;font-size:13px}
+  .burger{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;cursor:pointer;font-size:16px}
+
+  /* hero */
+  .hero{background:linear-gradient(180deg,#fff,var(--bg-soft));overflow:hidden}
+  .hero .wrap{padding:54px 22px 60px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  .hero .eyebrow{margin-bottom:6px}
+  .hero h2.sub{font-size:clamp(16px,2.3vw,21px);font-weight:900;color:var(--ink);margin:0 0 6px}
+  .hero .logo-jp{font-size:clamp(46px,8vw,86px);font-weight:900;line-height:1;color:var(--pink-deep);letter-spacing:.01em;margin:6px 0 2px}
+  .hero .logo-en{font-size:clamp(15px,2.4vw,22px);font-weight:800;letter-spacing:.34em;color:var(--ink);opacity:.7;margin-bottom:18px}
+  .hero p.lead{font-size:clamp(14px,1.9vw,16.5px);color:var(--ink-2);margin:0 0 22px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-note{margin-top:14px;font-size:11.5px;color:var(--mut)}
+  /* hero visual */
+  .hero-visual{position:relative}
+  .portrait{border-radius:22px;aspect-ratio:4/5;background:
+      radial-gradient(120% 80% at 70% 10%, #ffd7e6, #ffeef4 60%, #fbe3ec);
+      border:1px solid var(--line);display:grid;place-items:center;color:var(--pink-deep);overflow:hidden;box-shadow:var(--shadow)}
+  .portrait .ph-ic{font-size:84px;opacity:.4}
+  .portrait .ph-tag{position:absolute;bottom:14px;left:14px}
+  .badge-float{position:absolute;top:18px;right:-6px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 16px;box-shadow:0 14px 30px -16px rgba(0,0,0,.25);text-align:center}
+  .badge-float small{display:block;font-size:10.5px;color:var(--ink-2);font-weight:700}
+  .badge-float .big{font-size:24px;font-weight:900;color:var(--pink-deep);line-height:1.1}
+  .mini-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+  .mini{aspect-ratio:1/1;border-radius:14px;background:linear-gradient(135deg,#ffe0ec,#fff2f7);border:1px solid var(--line);display:grid;place-items:center;color:var(--pink);font-size:24px}
+
+  /* logo strip */
+  .logos{border-bottom:1px solid var(--line);background:#fff}
+  .logos .wrap{padding:22px 22px}
+  .logos .cap{text-align:center;font-size:11.5px;color:var(--mut);font-weight:700;margin-bottom:12px}
+  .logos .row{display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:center;align-items:center}
+  .logos .lg{font-weight:900;color:#b9bdc8;font-size:16px;letter-spacing:.02em;filter:grayscale(1)}
+
+  /* sections */
+  section{padding:64px 0}
+  .sec-head{margin:0 0 34px}
+  .sec-head .pill{margin-bottom:12px}
+  .sec-head h2{font-size:clamp(22px,3vw,30px);font-weight:900;margin:0}
+  .sec-head.center{text-align:center}
+  .head-bar{background:linear-gradient(120deg,var(--pink),var(--pink-deep));color:#fff;border-radius:12px;padding:14px 22px;font-weight:900;font-size:clamp(17px,2.4vw,22px);display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
+  .head-bar .ico{font-size:20px}
+
+  /* とは？ */
+  .about{background:var(--bg-soft)}
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}
+  .feat-list{display:grid;gap:12px}
+  .feat{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .feat .n{flex:0 0 auto;width:38px;height:38px;border-radius:10px;background:var(--pink-soft);color:var(--pink-deep);display:grid;place-items:center;font-weight:900}
+  .feat b{display:block;font-size:15px}
+  .feat span{font-size:13px;color:var(--ink-2)}
+  /* dashboard mock */
+  .dash{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px;position:relative}
+  .dash .bar-top{display:flex;gap:6px;margin-bottom:14px}
+  .dash .bar-top i{width:9px;height:9px;border-radius:50%;background:#e7e9ef;display:block}
+  .dash .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+  .dash .kpi{background:var(--pink-tint);border-radius:10px;padding:10px}
+  .dash .kpi b{font-size:18px;color:var(--pink-deep);display:block}
+  .dash .kpi small{font-size:10px;color:var(--mut)}
+  .dash .chart{display:flex;align-items:flex-end;gap:8px;height:96px;padding:8px 4px;background:linear-gradient(180deg,#fff,var(--pink-tint));border-radius:10px}
+  .dash .chart span{flex:1;background:linear-gradient(180deg,var(--pink),var(--pink-deep));border-radius:5px 5px 0 0}
+  .phone{position:absolute;right:-14px;bottom:-18px;width:86px;height:170px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 16px 30px -16px rgba(0,0,0,.3);padding:10px 8px}
+  .phone .ph-bars{display:flex;flex-direction:column;gap:7px;margin-top:18px}
+  .phone .ph-bars i{height:9px;border-radius:5px;background:var(--pink-soft);display:block}
+  .phone .ph-bars i:nth-child(2){width:70%}
+  .phone .ph-bars i:nth-child(3){width:85%;background:var(--pink)}
+
+  /* 効果 */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;text-align:center;box-shadow:0 12px 30px -24px rgba(230,57,127,.5)}
+  .stat .label{font-size:13px;color:var(--ink-2);font-weight:700}
+  .stat .num{font-size:clamp(34px,6vw,46px);font-weight:900;color:var(--pink-deep);line-height:1.05;margin:6px 0 2px}
+  .stat .up{font-size:13px;color:var(--pink);font-weight:800}
+
+  /* 利用の流れ */
+  .flow{background:var(--bg-soft)}
+  .steps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+  .stepc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 12px;text-align:center;position:relative}
+  .stepc .step-n{font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--pink);background:var(--pink-soft);border-radius:999px;padding:2px 9px;display:inline-block;margin-bottom:8px}
+  .stepc .ico{font-size:24px;margin-bottom:6px}
+  .stepc b{font-size:12.5px;display:block;line-height:1.4}
+
+  /* roster */
+  .roster-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .talent{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 12px 30px -26px rgba(230,57,127,.55)}
+  .talent .pic{aspect-ratio:3/4;background:linear-gradient(150deg,#ffd9e6,#fff0f5);display:grid;place-items:center;color:var(--pink-deep);font-size:42px;position:relative}
+  .talent .pic .badge{position:absolute;top:10px;left:10px;font-size:9.5px;font-weight:800;background:#fff;color:var(--pink-deep);border:1px dashed var(--pink);padding:2px 8px;border-radius:999px}
+  .talent .body{padding:14px 14px 16px}
+  .talent .body h4{margin:0 0 2px;font-size:15px}
+  .talent .body .role{font-size:12px;color:var(--pink-deep);font-weight:800}
+  .roster-actions{text-align:center;margin-top:26px}
+
+  /* 料金 */
+  .price{background:var(--bg-soft)}
+  .price-wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:26px;align-items:start}
+  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .tier{border:1.5px solid var(--line);border-radius:18px;background:#fff;padding:26px 24px;position:relative}
+  .tier.feat{border-color:var(--gold);box-shadow:0 22px 50px -30px rgba(202,164,78,.5)}
+  .tier.feat::after{content:"おすすめ";position:absolute;top:-13px;right:20px;background:linear-gradient(120deg,#dcb968,var(--gold));color:#3b2f12;font-size:11.5px;font-weight:900;padding:5px 13px;border-radius:999px}
+  .tier .tname{font-size:15px;font-weight:900;color:var(--pink-deep)}
+  .tier .amt{font-size:30px;font-weight:900;margin:6px 0 2px}
+  .tier .amt small{font-size:13px;color:var(--mut);font-weight:700}
+  .tier ul{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+  .tier li{font-size:13px;display:flex;gap:8px}
+  .tier li::before{content:"✓";color:var(--pink-deep);font-weight:900}
+  .trial{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+  .trial h3{margin:0 0 14px;font-size:16px}
+  .trial .opt{display:flex;gap:11px;align-items:center;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .trial .opt:last-of-type{border-bottom:0}
+  .trial .opt .ic{width:34px;height:34px;border-radius:9px;background:var(--pink-soft);display:grid;place-items:center;color:var(--pink-deep);flex:0 0 auto}
+  .trial .opt b{font-size:13.5px}
+  .trial .opt small{display:block;font-size:11px;color:var(--mut)}
+  .trial .btn{width:100%;justify-content:center;margin-top:16px}
+
+  /* 声 */
+  .voices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .voice{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+  .voice .stars{color:var(--pink);font-size:13px;letter-spacing:2px}
+  .voice p{margin:8px 0 16px;font-size:13.5px}
+  .voice .who{display:flex;align-items:center;gap:11px}
+  .voice .av{width:42px;height:42px;border-radius:50%;background:var(--pink-soft);display:grid;place-items:center;color:var(--pink-deep);font-weight:900;flex:0 0 auto}
+  .voice .who b{font-size:12.5px}
+  .voice .who small{color:var(--mut);font-size:11px}
+
+  /* footer CTA band */
+  .cta-band{background:linear-gradient(120deg,var(--pink),var(--pink-deep));color:#fff;text-align:center;padding:48px 22px}
+  .cta-band h2{font-size:clamp(18px,2.7vw,26px);font-weight:900;margin:0 0 20px}
+  .cta-band .btn-primary{background:#fff;color:var(--pink-deep)}
+  .cta-band .btn-ghost{background:transparent;color:#fff;border-color:#fff}
+  .cta-band .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  footer.site{background:#fff;border-top:1px solid var(--line);padding:34px 0 48px}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  .foot small{color:var(--mut)}
+  .foot-links{display:flex;gap:18px;flex-wrap:wrap}
+  .foot-links a{text-decoration:none;color:var(--ink-2);font-weight:700;font-size:13.5px}
+  .switch{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:999px;padding:7px 9px 7px 15px;font-size:12.5px;font-weight:700;text-decoration:none;margin-top:12px}
+  .switch b{background:#fff;color:var(--navy);border-radius:999px;padding:5px 12px;font-size:12px}
+
+  @media(max-width:980px){
+    .hero .wrap{grid-template-columns:1fr}.hero-visual{max-width:420px}
+    .about-grid{grid-template-columns:1fr}.price-wrap{grid-template-columns:1fr}
+    .steps{grid-template-columns:repeat(3,1fr)}
+  }
+  @media(max-width:860px){
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:18px 22px;gap:16px;margin:0}
+    .burger{display:inline-flex}
+    .nav-cta .btn:nth-child(2){display:none}
+    .stats{grid-template-columns:1fr}.roster-grid{grid-template-columns:1fr 1fr}
+    .tiers{grid-template-columns:1fr}.voices{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){.steps{grid-template-columns:1fr 1fr}.mini-row{grid-template-columns:repeat(3,1fr)}.roster-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="cobrand" href="index.html" aria-label="HORIPRO × A.B.HAP ガバショ！">
+      <span class="horipro"><span class="star">★</span>HORIPRO</span>
+      <span class="x">×</span>
+      <span class="abhap">A.B.HAP</span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#about">ガバショとは</a>
+      <a href="#effect">特長・効果</a>
+      <a href="#flow">利用の流れ</a>
+      <a href="#price">料金プラン</a>
+      <a href="#voices">導入事例</a>
+      <a href="athlete.html">PRO Athlete版</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="contact.html?plan=announcer">資料請求する（無料）</a>
+      <a class="btn btn-ghost" href="contact.html?plan=announcer">無料トライアル</a>
+      <button class="burger" id="burger" aria-label="メニュー">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">ホリプロのアナウンサー・モデルが伴走する</span>
+      <h2 class="sub">営業マンのモチベーション伴走サービス</h2>
+      <div class="logo-jp">ガバショ！</div>
+      <div class="logo-en">GABASHO!</div>
+      <p class="lead">営業マンの“やる気”を引き出し、成果を最大化。<br>データ伴走で、組織が変わる。</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="contact.html?plan=announcer">資料請求する（無料）</a>
+        <a class="btn btn-ghost btn-arrow" href="contact.html?plan=announcer">無料トライアルを申し込む</a>
+      </div>
+      <p class="hero-note">※ トライアルは14日間／クレジットカード登録不要・いつでも解約可 <span class="sample">※サンプル</span></p>
+    </div>
+    <div class="hero-visual">
+      <div class="portrait">
+        <span class="ph-ic">🎤</span>
+        <span class="ph-tag sample">人物写真は許諾後に差し替え</span>
+      </div>
+      <div class="badge-float">
+        <small>導入企業の営業成績</small>
+        <div class="big">平均 +32.7% UP!</div>
+        <small class="sample">※サンプル</small>
+      </div>
+      <div class="mini-row">
+        <div class="mini">🎤</div>
+        <div class="mini">💁‍♀️</div>
+        <div class="mini">📣</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<div class="logos">
+  <div class="wrap">
+    <div class="cap">導入企業 一例 <span class="sample">※サンプル（実ロゴは許諾後に掲載）</span></div>
+    <div class="row">
+      <span class="lg">COMPANY</span><span class="lg">NEXTAGE</span><span class="lg">SANKO</span>
+      <span class="lg">BREW</span><span class="lg">DUSCO</span><span class="lg">MIYABI</span>
+      <span class="lg">B&amp;D</span><span class="lg">HULC</span>
+    </div>
+  </div>
+</div>
+
+<!-- ガバショ！とは？ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="pill">ABOUT</span><h2>ガバショ！とは？</h2></div>
+    <div class="about-grid">
+      <div>
+        <p style="color:var(--ink-2);font-size:14.5px;margin:0 0 18px">ホリプロのアナウンサー・モデルが、営業マン一人ひとりに寄り添い、モチベーションを管理・伴走をサポートします。オンラインでの定期面談や日々のコミュニケーションを通じて、継続的な成長を後押しします。</p>
+        <div class="feat-list">
+          <div class="feat"><span class="n">1</span><div><b>月1回のオンライン伴走</b><span>担当者との定期面談（30〜60分）</span></div></div>
+          <div class="feat"><span class="n">2</span><div><b>ダッシュボードで進捗を見える化</b><span>活動・成果・モチベーションをデータ化</span></div></div>
+          <div class="feat"><span class="n">3</span><div><b>日記機能でAI分析＋アドバイス</b><span>日々の記録から気づきとヒントを提示</span></div></div>
+        </div>
+      </div>
+      <div class="dash">
+        <div class="bar-top"><i></i><i></i><i></i></div>
+        <div class="kpis">
+          <div class="kpi"><b>+32.7%</b><small>営業成績</small></div>
+          <div class="kpi"><b>93.4%</b><small>目標達成率</small></div>
+          <div class="kpi"><b>87.6%</b><small>継続率</small></div>
+        </div>
+        <div class="chart"><span style="height:40%"></span><span style="height:55%"></span><span style="height:48%"></span><span style="height:70%"></span><span style="height:62%"></span><span style="height:85%"></span><span style="height:78%"></span><span style="height:96%"></span></div>
+        <div class="phone"><div class="bar-top"><i></i></div><div class="ph-bars"><i></i><i></i><i></i><i></i></div></div>
+      </div>
+    </div>
+    <p style="text-align:right;margin:10px 2px 0"><span class="sample">画面・数値はイメージ ※サンプル</span></p>
+  </div>
+</section>
+
+<!-- 期待できる効果 -->
+<section id="effect">
+  <div class="wrap">
+    <div class="sec-head"><span class="pill">RESULTS</span><h2>期待できる効果</h2></div>
+    <div class="stats">
+      <div class="stat"><div class="label">営業成績の向上</div><div class="num">+32.7%</div><div class="up">UP ↑</div></div>
+      <div class="stat"><div class="label">目標達成率の向上</div><div class="num">93.4%</div><div class="up">達成</div></div>
+      <div class="stat"><div class="label">継続率（3カ月後）</div><div class="num">87.6%</div><div class="up">継続</div></div>
+    </div>
+    <p style="text-align:center;margin:18px 0 0"><span class="sample">※ 数値はサンプル。確定値に置換するまでサンプル表記</span></p>
+  </div>
+</section>
+
+<!-- 利用の流れ -->
+<section class="flow" id="flow">
+  <div class="wrap">
+    <div class="sec-head"><span class="pill">FLOW</span><h2>利用の流れ</h2></div>
+    <div class="steps">
+      <div class="stepc"><span class="step-n">STEP 1</span><div class="ico">🔗</div><b>ダッシュボード連携</b></div>
+      <div class="stepc"><span class="step-n">STEP 2</span><div class="ico">💻</div><b>オンライン伴走</b></div>
+      <div class="stepc"><span class="step-n">STEP 3</span><div class="ico">📔</div><b>日記機能・コメント</b></div>
+      <div class="stepc"><span class="step-n">STEP 4</span><div class="ico">🤖</div><b>AIレポート</b></div>
+      <div class="stepc"><span class="step-n">STEP 5</span><div class="ico">🗣️</div><b>上司へフィードバック</b></div>
+      <div class="stepc"><span class="step-n">STEP 6</span><div class="ico">📈</div><b>改善提案</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 担当（roster：実名は許諾確定まで非掲載） -->
+<section id="roster">
+  <div class="wrap">
+    <div class="head-bar"><span class="ico">⭐</span>ホリプロ所属のアナウンサー・モデルが担当します</div>
+    <p style="color:var(--ink-2);font-size:14px;margin:18px 2px 22px">表現力や共感力に優れたプロフェッショナルが、あなたの組織の伴走を担当。プロの“言葉の力”で、“変わりたい”を“変われた”に変えます。</p>
+    <div class="roster-grid" id="rosterGrid"><!-- JSで描画 --></div>
+    <div class="roster-actions">
+      <a class="btn btn-ghost btn-arrow" href="contact.html?plan=announcer">担当者一覧を見る</a>
+    </div>
+    <p style="text-align:center;margin:16px 0 0"><span class="sample">実在のアナウンサー・モデルの実名／写真は許諾確定後に roster 配列を差し替えて掲載</span></p>
+  </div>
+</section>
+
+<!-- 料金プラン -->
+<section class="price" id="price">
+  <div class="wrap">
+    <div class="sec-head"><span class="pill">PRICE</span><h2>料金プラン <span class="sample">※サンプル</span></h2></div>
+    <div class="price-wrap">
+      <div class="tiers">
+        <div class="tier">
+          <div class="tname">スタンダードプラン</div>
+          <div class="amt">300,000<small>円／月〜</small></div>
+          <ul>
+            <li>月1回のオンライン伴走</li>
+            <li>ダッシュボード連携</li>
+            <li>日記機能・コメント</li>
+            <li>AIレポート・上司共有</li>
+          </ul>
+        </div>
+        <div class="tier feat">
+          <div class="tname">プレミアムプラン</div>
+          <div class="amt">500,000<small>円／月〜</small></div>
+          <ul>
+            <li>月2回以上のオンライン伴走</li>
+            <li>ダッシュボード連携</li>
+            <li>AIレポート・上司共有</li>
+            <li>イベント・セミナー登壇対応</li>
+          </ul>
+        </div>
+      </div>
+      <div class="trial">
+        <h3>まずは14日間 無料でお試し</h3>
+        <div class="opt"><span class="ic">♾️</span><div><b>すべての機能</b><small>使い放題</small></div></div>
+        <div class="opt"><span class="ic">🛟</span><div><b>導入サポート</b><small>安心の伴走</small></div></div>
+        <div class="opt"><span class="ic">🆓</span><div><b>解約金</b><small>0円・いつでも解約可</small></div></div>
+        <a class="btn btn-primary btn-arrow" href="contact.html?plan=announcer">無料トライアルを申し込む</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 導入企業の声 -->
+<section id="voices">
+  <div class="wrap">
+    <div class="sec-head center"><span class="pill">VOICE</span><h2>導入企業の声 <span class="sample">※サンプル</span></h2></div>
+    <div class="voices">
+      <div class="voice"><div class="stars">★★★★★</div><p>「営業チームの雰囲気が大きく変わりました！アナウンサーの方の伴走でモチベーションが上がり、数字にも表れています。」</p><div class="who"><div class="av">A</div><div><b>A社 営業部長</b><br><small>IT・従業員120名</small></div></div></div>
+      <div class="voice"><div class="stars">★★★★★</div><p>「目標達成率が過去最高に。日々のフィードバックとアドバイスが、行動の質を変えてくれました。」</p><div class="who"><div class="av">B</div><div><b>B社 人事責任者</b><br><small>人材・従業員60名</small></div></div></div>
+      <div class="voice"><div class="stars">★★★★★</div><p>「一人ひとりに寄り添うサポートで離職が減りました。続けられる仕組みが何よりの価値です。」</p><div class="who"><div class="av">C</div><div><b>C社 経営企画</b><br><small>不動産・従業員200名</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>営業マンの“やる気”を引き出し、会社の成長を加速させるパートナーです。</h2>
+  <div class="row">
+    <a class="btn btn-primary btn-arrow" href="contact.html?plan=announcer">資料請求する（無料）</a>
+    <a class="btn btn-ghost btn-arrow" href="contact.html?plan=announcer">無料トライアルを申し込む</a>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap foot">
+    <div>
+      <a class="cobrand" href="index.html"><span class="horipro"><span class="star">★</span>HORIPRO</span><span class="x">×</span><span class="abhap">A.B.HAP</span></a>
+      <div style="margin-top:10px"><small>※ 掲載の人物・写真・実績・お客様の声・料金・ロゴはすべて許諾／確定前のサンプルです。</small></div>
+      <div><a class="switch" href="athlete.html">別プランを見る <b>PRO Athlete版 →</b></a></div>
+    </div>
+    <div class="foot-links">
+      <a href="index.html">トップ</a>
+      <a href="announcer.html">アナウンサー・モデル版</a>
+      <a href="athlete.html">PRO Athlete版</a>
+      <a href="contact.html?plan=announcer">資料請求・相談</a>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:22px"><small style="color:var(--mut)">© <span id="yr"></span> ガバショ！（HORIPRO × A.B.HAP）All rights reserved.</small></div>
+</footer>
+
+<script>
+  // ▼▼ 担当アナウンサー・モデル（roster） ▼▼
+  // 実在のアナウンサー・モデルの実名／写真は許諾確定まで掲載しない（CLAUDE.md準拠）。
+  // 許諾取得後、この配列の name / role / photo を差し替えるだけで反映されます。
+  var roster = [
+    { name:"アナウンサー A", role:"フリーアナウンサー", photo:"" },
+    { name:"アナウンサー B", role:"元・テレビ局アナウンサー", photo:"" },
+    { name:"モデル C", role:"ファッションモデル", photo:"" },
+    { name:"モデル D", role:"PR／タレント", photo:"" }
+  ];
+
+  function renderRoster(){
+    var grid = document.getElementById('rosterGrid');
+    if (!grid) return;
+    grid.innerHTML = roster.map(function(t){
+      var initial = (t.name || "?").trim().charAt(0);
+      var pic = t.photo
+        ? '<div class="pic" style="background-image:url(\'' + t.photo + '\');background-size:cover;background-position:center"><span class="badge">担当</span></div>'
+        : '<div class="pic"><span class="badge">※許諾確認中</span>' + (initial || "🎤") + '</div>';
+      return ''
+        + '<div class="talent">'
+        +   pic
+        +   '<div class="body"><h4>' + t.name + '</h4><div class="role">' + t.role + '</div></div>'
+        + '</div>';
+    }).join('');
+  }
+  renderRoster();
+
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navlinks');
+  if (burger) burger.addEventListener('click', function(){ links.classList.toggle('open'); });
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

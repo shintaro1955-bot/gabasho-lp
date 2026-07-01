@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="PRO Athlete版 ガバショ！">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16224a"/>
+      <stop offset="1" stop-color="#0a1124"/>
+    </linearGradient>
+    <radialGradient id="gd" cx="100%" cy="0%" r="60%">
+      <stop offset="0" stop-color="#d7b25a" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#d7b25a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f1d488"/>
+      <stop offset="1" stop-color="#d7b25a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#gd)"/>
+  <g font-family="'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif">
+    <text x="100" y="180" font-size="30" font-weight="800" letter-spacing="6" fill="url(#gold)">PRO ATHLETE — ENTERPRISE</text>
+    <text x="100" y="320" font-size="84" font-weight="900" fill="#fff">PRO Athlete版</text>
+    <text x="100" y="430" font-size="64" font-weight="900" fill="url(#gold)">勝者のマインドを、組織のDNAに。</text>
+    <text x="100" y="510" font-size="36" font-weight="700" fill="#c3cbdd">PROアスリートが年間伴走。月300万／特別講演会</text>
+  </g>
+</svg>
